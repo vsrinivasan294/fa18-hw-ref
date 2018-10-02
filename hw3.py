@@ -12,7 +12,21 @@ As with math, assume that indices are in [row][column] format, so each inner lis
 """
 
 def matrix_multiply(arr0, arr1):
-    pass
+    
+    if (arr0 is None or arr1 is None):
+        return None
+    
+    if (len(arr0[0]) is not len(arr1)):
+        return None
+    
+    result = [ [0] * len(arr1[0]) for _ in range(len(arr0))]
+                                              
+    for i in range (len(arr0)):
+        for j in range (len(arr1[0])):
+            for k in range (len(arr0[0])):
+                result [i][j] += arr0[i][k] * arr1[k][j]                                          
+    
+    return result
     
 """
 nth_largest_element
