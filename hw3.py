@@ -1,4 +1,4 @@
-# All code written assuming there are no checks for sideeffeects beacause it was not mentioned otherwise anywhere
+# All code written assuming there are no checks for side effeects beacause it was not mentioned otherwise anywhere
 
 
 
@@ -12,7 +12,7 @@ As with math, assume that indices are in [row][column] format, so each inner lis
 """
 
 def matrix_multiply(arr0, arr1):
-   
+    pass
     
 """
 nth_largest_element
@@ -22,6 +22,12 @@ Avoid using built-in sorting methods.
 """
 def nth_largest_element(arr, n):
     
+    if (arr == None):
+        return None
+    
+    if (len(arr) == 0):
+        return None
+    
     check =[]
     for x in range (n):
         check.append(max(arr))
@@ -29,6 +35,21 @@ def nth_largest_element(arr, n):
         arr.pop(max_val)
         
     return check[n-1]
+
+
+"""
+
+Alternate solution with recursion
+
+def nth_largest_element(arr, n):
+    if n == 1:
+        return max(arr)
+    maximum = max(arr)
+    arr_new = list(filter(lambda a: a != maximum, arr))
+    return nth_largest_element(arr_new, n-1)
+
+
+"""
 
 
 """
@@ -45,6 +66,10 @@ Example:
 
 """
 def reverse_block(arr, n):
+    
+    if (arr == None):
+        return None
+    
     if (len(arr) == 0):
         return None
     
@@ -85,6 +110,13 @@ Example 2:
 """
 def checker(arr ,arr_length, target) : 
     
+    if (arr == None):
+        return None
+    
+    if (len(arr) == 0):
+        return None
+    
+    
     if (target == 0) : 
         return True
     elif (arr_length == 0 and target != 0): 
@@ -97,7 +129,7 @@ def checker(arr ,arr_length, target) :
         return checker(arr, arr_length-1, target) or checker(arr, arr_length-1, target - arr[arr_length-1]) 
 
 def subset_sum(arr, target):
-    return checker(arr, len(set), target)
+    return checker(arr, len(arr), target)
 """
 spiral_matrix
 
